@@ -10,4 +10,4 @@
 
 6.  Activate autogen: source D:/ProgramFiles/Anaconda/Scripts/activate autogen
 
-7.  Run file from command line: python <filename>
+7.  Run file from command line: python "filename"
