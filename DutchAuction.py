@@ -16,23 +16,6 @@ llm_config = {
 
 
 
-cachier = autogen.AssistantAgent(
-    name="Cashier",
-    llm_config=llm_config,
-    system_message="Hello, I am the cashier. Respond only with a few words. "
-)
-
-# Creating the Customer agent
-customer_agent = autogen.UserProxyAgent(
-    name="Customer",
-    human_input_mode="NEVER",
-    max_consecutive_auto_reply=20,
-    is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
-    code_execution_config={"work_dir": "web"},
-    llm_config=llm_config,
-    system_message="Hello, I am a customer.Respond only with a few words."
-)
-
 auctioneer = autogen.AssistantAgent(
     name="auctioneer",
     system_message="You are an auctioneer, ask guests to participate, then start the acution.",
