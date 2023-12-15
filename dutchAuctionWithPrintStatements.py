@@ -14,11 +14,9 @@ class CustomConversableAgent(autogen.ConversableAgent):
             return f"As a bidder, I {decision} the current price of ${current_price}."
 
 def conduct_auction(group_chat_manager, auctioneer, bidders, starting_price, decrement, minimum_price):
-    auctioneer.send(recipient=group_chat_manager, message="Hello boys")
     current_price = starting_price
 
     while current_price >= minimum_price:
-        auctioneer.send(group_chat_manager, auctioneer)
         print(f"Auctioneer: The current price is ${current_price}. Will any bidder accept this price?")
 
         any_bid_accepted = False
