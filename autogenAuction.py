@@ -5,8 +5,7 @@ config_list = [
         "model": "palm/chat-bison",
         "base_url": "http://localhost:8000",
         "api_key": "NULL",
-        # "model": "gpt-4",
-        # "api_key": "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",
+
     }
 ]
 llm_config = {
