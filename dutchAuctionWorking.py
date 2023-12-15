@@ -3,7 +3,7 @@ import random
 
 
 def conduct_auction(auctioneer, bidders, starting_price, decrement, minimum_price):
-    winningBidder = bidders[0];
+    winningBidder = bidders[0]
     current_price = starting_price
     for bidder in bidders: 
         auctioneer.send(recipient=bidder, message="Are you ready to start the auction?")
@@ -26,7 +26,7 @@ def conduct_auction(auctioneer, bidders, starting_price, decrement, minimum_pric
             bidder.send(message=reply, recipient=auctioneer)
             if "I accept" in reply:
                 any_bid_accepted = True
-                winningBidder = bidder;
+                winningBidder = bidder
                 break
 
         if any_bid_accepted:
@@ -44,7 +44,7 @@ def main():
     config_list = [
         {"model": "palm/chat-bison", "base_url": "http://localhost:8000", "api_key": "NULL"}
     ]
-    llm_config = {"timeout": 600, "config_list": config_list, "temperature": 1}
+    llm_config = {"timeout": 600, "config_list": config_list, "temperature": 0.5}
 
     starting_price = random.randint(6000, 10000) 
     
