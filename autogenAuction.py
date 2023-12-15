@@ -2,10 +2,11 @@ import autogen
 
 config_list = [
     {
-        # "model": "palm/chat-bison",
-        # "base_url": "http://localhost:8000",
-        "model": "gpt-4",
-        "api_key": "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",
+        "model": "palm/chat-bison",
+        "base_url": "http://localhost:8000",
+        "api_key": "NULL",
+        # "model": "gpt-4",
+        # "api_key": "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",
     }
 ]
 llm_config = {
@@ -25,7 +26,7 @@ user_proxy = autogen.UserProxyAgent(
 
 auctioneer = autogen.ConversableAgent(
         name="auctioneer",
-        system_message="You are auctioneer, use FIPA communication protocol to communicate with the bidder, Do not involve in future conversations or error fixing",
+        system_message="You are an auctioneer in Dutch auction, your starting price is 2000 dollars, use FIPA communication protocol to communicate with the bidder, request a reply at each derement. Do not involve in future conversations or error fixing",
         is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
         llm_config=llm_config,
         # default_auto_reply="That's nice, Let's start"
@@ -35,7 +36,7 @@ auctioneer = autogen.ConversableAgent(
 
 bidder1 = autogen.ConversableAgent(
     name="bidder1",
-    system_message="You are the bidder1, use FIPA communication protocols to bid. Do not involve in future conversations or error fixing",
+    system_message="You are the bidder1, your budget is 1100 dollars, use FIPA communication protocols to bid. reply at each call from auctioneer. Do not involve in future conversations or error fixing",
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
     llm_config=llm_config,
     code_execution_config=False
@@ -44,7 +45,7 @@ bidder1 = autogen.ConversableAgent(
 
 bidder2 = autogen.ConversableAgent(
     name="bidder2",
-    system_message="You are the bidder2, use FIPA communication protocols to bid. Do not involve in future conversations or error fixing",
+    system_message="You are the bidder2, your budget is 1200 dollars, use FIPA communication protocols to bid. reply at each call from auctioneer. Do not involve in future conversations or error fixing",
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
     llm_config=llm_config,
     code_execution_config=False
