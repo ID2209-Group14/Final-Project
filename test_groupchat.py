@@ -19,22 +19,19 @@ def test_groupchat(method):
             "alice",
             max_consecutive_auto_reply=10,
             human_input_mode="NEVER",
-            llm_config=False,
-            default_auto_reply="This is alice speaking.",
+            llm_config=llm_config,
         )
     agent2 = autogen.ConversableAgent(
             "bob",
             max_consecutive_auto_reply=10,
             human_input_mode="NEVER",
-            llm_config=False,
-            default_auto_reply="This is bob speaking.",
+            llm_config=llm_config,
         )
     agent3 = autogen.ConversableAgent(
             "charlie",
             max_consecutive_auto_reply=10,
             human_input_mode="NEVER",
-            llm_config=False,
-            default_auto_reply="This is charlie speaking.",
+            llm_config=llm_config,
         )
 
     groupchat = autogen.GroupChat(
