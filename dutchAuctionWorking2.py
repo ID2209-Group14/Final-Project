@@ -1,12 +1,9 @@
 import autogen
 import random
+import threading
 
-
-def conduct_auction(auctioneer, bidders, genre, starting_price, decrement, minimum_price):
-    winningBidder = bidders[0]
-    current_price = starting_price
+def bidderInterest(auctioneer, genre, bidders):
     bidder_interests = {bidder: False for bidder in bidders}
-
     for bidder in bidders: 
         auctioneer.send(recipient=bidder, message=f"Are you ready to start the {genre} auction?")
 
@@ -17,6 +14,14 @@ def conduct_auction(auctioneer, bidders, genre, starting_price, decrement, minim
         bidder.send(message=reply, recipient=auctioneer)
         if "Yes" in reply:
             bidder_interests[bidder] = True
+
+    return bidder_interests
+
+
+def conduct_auction(auctioneer, bidders, bidder_interests, genre, starting_price, decrement, minimum_price):
+    winningBidder = None
+    current_price = starting_price
+    
 
     
     while current_price >= minimum_price:
@@ -63,31 +68,46 @@ def main():
 
     genres = ["CDs", "Clothes", "Arts"]
 
-    auctioneer = autogen.ConversableAgent(
-            "auctioneer",
+    auctioneers = [
+        autogen.ConversableAgent(
+            f"auctioneer{i}",
             max_consecutive_auto_reply=10,
             human_input_mode="NEVER",
             llm_config=llm_config,
-            system_message=f"You are an auctioneer in a Dutch auction. You starting price is ${starting_price} dollars, and you will decrease the price by ${decrement} dollars in each round."
-            )
-            # for i in range(3)
-            # for genre in [random.choice(genres)]
-        
+            system_message=f"You are an auctioneer in a Dutch auction. You are selling {genre}, You starting price is ${starting_price} dollars, and you will decrease the price by ${decrement} dollars in each round.")
+            for i, genre in enumerate(genres)
+    ]
     
 
     bidders = [
         autogen.ConversableAgent(f"bidder{i}", llm_config=llm_config, max_consecutive_auto_reply=10,
-            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. Your genre is {genre}, you only participate in your genre auction. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
+            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. Your genre is {genre}, you only participate in your genre auction. When the auctioneer asks if you are ready, and it is your genre auction, then you will reply with 'Yes, I am ready'. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
         for i in range(6)
         for budget in [random.randint(1000, 2000)]
         for genre in [random.choice(genres)]
     ]
 
+    threads = []
 
-  
+    for auctioneer in auctioneers:
+        genre = auctioneer.system_message.split("You are selling ")[1].split(",")[0]
+        bidder_interests = bidderInterest(auctioneer, genre, bidders)
+        print(genre)
+        print(bidder_interests)
+        starting_price = random.randint(2000, 3000)
+        decrement = random.randint(500, 1000)
+        minimum_price = random.randint(1000, 2000)
+
+        auction_thread = threading.Thread(target=conduct_auction, args=(auctioneer, bidders, bidder_interests, genre, starting_price, decrement, minimum_price))
+        threads.append(auction_thread)
+
+    
+    for thread in threads:
+        thread.start()
 
 
-    conduct_auction(auctioneer, bidders, random.choice(genres), starting_price, decrement, minimum_price)
+    for thread in threads:
+        thread.join()
 
 if __name__ == "__main__":
     main()
