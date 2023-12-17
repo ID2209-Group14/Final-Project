@@ -46,7 +46,7 @@ def conduct_auction(auctioneer, bidders, bidder_interests, genre, starting_price
         else:
             current_price -= decrement
     
-    reply = auctioneer.generate_reply(messages=[{"content": "Inform in one sentence to all bidders that the auction for clothes has ended without a sale."}])
+    reply = auctioneer.generate_reply(messages=[{"content": f"Inform in one sentence to all bidders that the auction for {genre} has ended without a sale."}])
 
     for bidder in bidders:
         if bidder_interests[bidder]:
@@ -81,7 +81,7 @@ def main():
 
     bidders = [
         autogen.ConversableAgent(f"bidder{i}", llm_config=llm_config, max_consecutive_auto_reply=10,
-            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. Your genre is {genre}, you only participate in your genre auction. When the auctioneer asks if you are ready, and it is your genre auction, then you will reply with 'Yes, I am ready'. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
+            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. Your genre is {genre}, you only participate in your genre auction. When the auctioneer asks if you are ready, and it is your genre auction, then you must reply with 'Yes, I am ready'. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
         for i in range(6)
         for budget in [random.randint(1000, 2000)]
         for genre in [random.choice(genres)]
