@@ -9,6 +9,15 @@ config_list = [
     }
 
 ]
-assistant = AssistantAgent("assistant", llm_config={"config_list": config_list})
-user_proxy = UserProxyAgent("user_proxy", code_execution_config={"work_dir": "coding"})
-user_proxy.initiate_chat(assistant, message="Plot a chart of NVDA and TESLA stock price change YTD.")
+llm_config = {"timeout": 600, "config_list": config_list, "temperature": 0.5}
+
+
+assistant = AssistantAgent("assistant", llm_config=llm_config, system_message="you are an AI assistant", human_input_mode="NEVER")
+BOSS = AssistantAgent("boss", llm_config=llm_config, system_message="a boss, to be served with daily issue",human_input_mode="NEVER")
+
+assistant.send(recipient=BOSS, message="what can i do for you?", request_reply=True)
+message = BOSS.last_message(assistant)
+# print(message)
+BOSS.generate_reply(sender=assistant, messages=[message])
+# print(reply)
+# BOSS.send(recipient=assistant, message=reply)

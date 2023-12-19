@@ -1,0 +1,303 @@
+auctioneer0 (to bidder0):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder1):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder2):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder3):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder4):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder5):
+
+Are you ready to start the CDs auction?
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer0):
+
+Yes
+
+--------------------------------------------------------------------------------
+bidder1 (to auctioneer0):
+
+Yes
+
+--------------------------------------------------------------------------------
+bidder2 (to auctioneer0):
+
+No, I am only ready for the Arts auction.
+
+--------------------------------------------------------------------------------
+bidder3 (to auctioneer0):
+
+No, I am only ready for the Arts auction.
+
+--------------------------------------------------------------------------------
+bidder4 (to auctioneer0):
+
+Yes
+
+--------------------------------------------------------------------------------
+bidder5 (to auctioneer0):
+
+Yes
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder0):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder1):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder2):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder3):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder4):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+auctioneer1 (to bidder5):
+
+Are you ready to start the Clothes auction?
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer1):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+bidder1 (to auctioneer1):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+bidder2 (to auctioneer1):
+
+No, I am only ready for the Arts auction.
+
+--------------------------------------------------------------------------------
+bidder3 (to auctioneer1):
+
+No, I am only ready for the Arts auction.
+
+--------------------------------------------------------------------------------
+bidder4 (to auctioneer1):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+bidder5 (to auctioneer1):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder0):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder1):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder2):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder3):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder4):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder5):
+
+Are you ready to start the Arts auction?
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer2):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+bidder1 (to auctioneer2):
+
+No, I am only ready for the CDs auction.
+
+--------------------------------------------------------------------------------
+bidder2 (to auctioneer2):
+
+Yes
+
+--------------------------------------------------------------------------------
+bidder3 (to auctioneer2):
+
+Yes
+
+--------------------------------------------------------------------------------
+bidder4 (to auctioneer2):
+
+No
+
+--------------------------------------------------------------------------------
+bidder5 (to auctioneer2):
+
+No, I am only ready for the CDs auction
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder0):
+
+Selling CDs for $2019.
+
+auctioneer2 (to bidder2):
+--------------------------------------------------------------------------------
+
+auctioneer0 (to bidder1):
+Selling Arts for $2334.
+
+
+Selling CDs for $2019.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder4):
+auctioneer2 (to bidder3):
+
+
+Selling CDs for $2019.
+Selling Arts for $2334.
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder5):
+
+Selling CDs for $2019.
+
+--------------------------------------------------------------------------------
+bidder2 (to auctioneer2):
+
+No
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer0):
+
+Sorry, I decline.
+
+--------------------------------------------------------------------------------
+bidder3 (to auctioneer2):
+
+No
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder2):
+
+Selling Arts for $1743.
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder3):
+
+Selling Arts for $1743.
+
+--------------------------------------------------------------------------------
+bidder2 (to auctioneer2):
+
+Sorry, I decline.
+
+--------------------------------------------------------------------------------
+bidder1 (to auctioneer0):
+
+Sorry, I decline the price
+
+--------------------------------------------------------------------------------
+bidder3 (to auctioneer2):
+
+Sorry, I decline.
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder2):
+
+The auction for Arts has ended without a sale. Thank you to all bidders.
+
+--------------------------------------------------------------------------------
+auctioneer2 (to bidder3):
+
+The auction for Arts has ended without a sale. Thank you to all bidders.
+
+--------------------------------------------------------------------------------
+bidder4 (to auctioneer0):
+
+Decline
+
+--------------------------------------------------------------------------------
+bidder5 (to auctioneer0):
+
+Decline
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder0):
+
+Selling CDs for $1172.
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder1):
+
+Selling CDs for $1172.
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder4):
+
+Selling CDs for $1172.
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder5):
+
+Selling CDs for $1172.
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer0):
+
+I accept the price
+
+--------------------------------------------------------------------------------
+auctioneer0 (to bidder0):
+
+Congratulations, you won the auction. Please provide some feedback on how you experienced the auction.
+
+--------------------------------------------------------------------------------
+bidder0 (to auctioneer0):
+
+I had a good experience with the Dutch auction. The price started at $2019, which was higher than my budget, so I declined. However $1172, which was within my budget, so I accepted the price. I was able to get the CDs for a good price, and I'm happy with the exp
