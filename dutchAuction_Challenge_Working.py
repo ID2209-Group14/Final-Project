@@ -1,7 +1,6 @@
 import autogen
 import random
 import threading
-import time
 
 
 def bidderInterest(auctioneer, genre, bidders):
@@ -74,14 +73,15 @@ def main():
             max_consecutive_auto_reply=10,
             human_input_mode="NEVER",
             llm_config=llm_config,
-            system_message=f"You are an auctioneer in a Dutch auction. You are selling {genre}, You starting price is ${starting_price} dollars, and you will decrease the price by ${decrement} dollars in each round.")
+            system_message=f"You are an auctioneer in a Dutch auction. You are selling {genre}, You have a starting price, and you will decrease the price by some amount in each round.")
             for i, genre in enumerate(genres)
     ]
     
 
     bidders = [
         autogen.ConversableAgent(f"bidder{i}", llm_config=llm_config, max_consecutive_auto_reply=10,
-human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. You are and only ready for your {genre} auction. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")        for i in range(6)
+        human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. You are and only ready for your {genre} auction. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")        
+        for i in range(10)
         for budget in [random.randint(1000, 2000)]
         for genre in [random.choice(genres)]
     ]
