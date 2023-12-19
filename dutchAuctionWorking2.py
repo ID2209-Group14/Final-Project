@@ -64,7 +64,7 @@ def main():
 
     starting_price = random.randint(2000, 3000)
     decrement = random.randint(500,1000)
-    minimum_price = random.randint(1000, 2000)
+    minimum_price = random.randint(500, 1500)
 
     genres = ["CDs", "Clothes", "Arts"]
 
@@ -81,7 +81,7 @@ def main():
 
     bidders = [
         autogen.ConversableAgent(f"bidder{i}", llm_config=llm_config, max_consecutive_auto_reply=10,
-            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. Your genre is {genre}, you only participate in your genre auction. When the auctioneer asks if you are ready, and it is your genre auction, then you will reply with 'Yes, I am ready'. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
+            human_input_mode="NEVER", system_message=f"You are a bidder in a Dutch auction. You are and only ready for your {genre} auction. Your budget is ${budget} dollars. The price will be accepted only if it is equal or less than your budget. In that case you will reply 'I accept the price'.")
         for i in range(6)
         for budget in [random.randint(1000, 2000)]
         for genre in [random.choice(genres)]
@@ -96,7 +96,7 @@ def main():
         print(bidder_interests)
         starting_price = random.randint(2000, 3000)
         decrement = random.randint(500, 1000)
-        minimum_price = random.randint(1000, 2000)
+        minimum_price = random.randint(500, 1500)
 
         auction_thread = threading.Thread(target=conduct_auction, args=(auctioneer, bidders, bidder_interests, genre, starting_price, decrement, minimum_price))
         threads.append(auction_thread)
